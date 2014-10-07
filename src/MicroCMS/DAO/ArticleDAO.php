@@ -35,18 +35,17 @@ class ArticleDAO extends DAO
         $sql = "select * from t_article where art_id=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
 
-        if ($row)
+        if ($row) {
             return $this->buildDomainObject($row);
-        else
+        } 
+        else {
             throw new \Exception("No article matching id " . $id);
+        }
     }
 
-    /**
-     * Creates an Article object based on a DB row.
-     *
+    /** Creates an Article object based on a DB row.
      * @param array $row The DB row containing Article data.
-     * @return \MicroCMS\Domain\Article
-     */
+     * @return \MicroCMS\Domain\Article */
     protected function buildDomainObject($row) {
         $article = new Article();
         $article->setId($row['art_id']);

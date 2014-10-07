@@ -17,10 +17,12 @@ class UserDAO extends DAO implements UserProviderInterface
         $sql = "select * from t_user where usr_id=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
 
-        if ($row)
+        if ($row) {
             return $this->buildDomainObject($row);
-        else
+        } 
+        else {
             throw new \Exception("No user matching id " . $id);
+        }
     }
 
     /** {@inheritDoc} */
@@ -29,10 +31,12 @@ class UserDAO extends DAO implements UserProviderInterface
         $sql = "select * from t_user where usr_name=?";
         $row = $this->getDb()->fetchAssoc($sql, array($username));
 
-        if ($row)
+        if ($row){
             return $this->buildDomainObject($row);
-        else
+        }
+        else{
             throw new UsernameNotFoundException(sprintf('User "%s" not found.', $username));
+        }
     }
 
     /** {@inheritDoc} */

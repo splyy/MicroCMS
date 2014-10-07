@@ -3,10 +3,10 @@
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block content %}
-    <p>
+<p>
     <h2>{{ article.title }}</h2>
     <p>{{ article.content }}</p>
-
+    
     <h3>Comments</h3>
     {% if comments %}
         {% for comment in comments %}
@@ -23,4 +23,4 @@
         <a href="{{ path('login') }} ">Log in</a> to add comments.
     {% endif %}
 </p>
-{% endblock %} 
+{% endblock %}
