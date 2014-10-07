@@ -1,0 +1,26 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <p>
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.content }}</p>
+
+    <h3>Comments</h3>
+    {% if comments %}
+        {% for comment in comments %}
+            <strong>{{ comment.author.username }}</strong> said : {{ comment.content }}<br>
+        {% endfor %}
+    {% else %}
+        No comments yet.
+    {% endif %}
+
+    <h3>Add a comment</h3>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        Soon!
+    {% else %}
+        <a href="{{ path('login') }} ">Log in</a> to add comments.
+    {% endif %}
+</p>
+{% endblock %} 

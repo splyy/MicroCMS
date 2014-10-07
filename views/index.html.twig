@@ -1,0 +1,12 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% for article in articles %}
+    <article>
+        <a class="articleTitle" href="/article/{{ article.id }}"><h2>{{ article.title }}</h2></a>
+        <p>{{ article.content }}</p>
+    </article>
+{% endfor %}
+{% endblock %}
