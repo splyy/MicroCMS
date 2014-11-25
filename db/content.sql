@@ -16,3 +16,7 @@ insert into t_comment(art_id, usr_id, com_content) values
 (1, 1, 'Great! Keep up the good work.');
 insert into t_comment(art_id, usr_id, com_content) values
 (1, 2, "This project is awesome!");
+
+/* raw password is '@dm1n' */
+insert into t_user(usr_name, usr_salt, usr_password, usr_role) values
+('admin', 'EDDsl&fBCJB|a5XUtAlnQN8', 'gqeuP4YJ8hU3ZqGwGikB6+rcZBqefVy+7hTLQkOD+jwVkp4fkS7/  gr1rAQfn9VUKWc7bvOD7OsXrQQN5KGHbfg==', 'ROLE_ADMIN');
