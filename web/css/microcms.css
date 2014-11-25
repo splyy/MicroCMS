@@ -11,3 +11,8 @@ body {
 .articleTitle:hover, .articleTitle:focus {
     text-decoration: none;
 }
+
+#errorPanel {
+    padding-top: 30px;
+    padding-bottom: 10px;
+}

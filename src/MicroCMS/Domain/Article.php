@@ -4,8 +4,25 @@ namespace MicroCMS\Domain;
 
 class Article 
 {
+    /**
+     * Article id.
+     *
+     * @var integer
+     */
     private $id;
+
+    /**
+     * Article title.
+     *
+     * @var string
+     */
     private $title;
+
+    /**
+     * Article content.
+     *
+     * @var string
+     */
     private $content;
 
     public function getId() {

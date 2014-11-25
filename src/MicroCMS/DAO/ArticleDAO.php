@@ -6,8 +6,11 @@ use MicroCMS\Domain\Article;
 
 class ArticleDAO extends DAO
 {
-    /** Returns a list of all articles, sorted by date (most recent first).
-     * @return array A list of all articles. */
+    /**
+     * Returns a list of all articles, sorted by date (most recent first).
+     *
+     * @return array A list of all articles.
+     */
     public function findAll() {
         $sql = "select * from t_article order by art_id desc";
         $result = $this->getDb()->fetchAll($sql);
@@ -21,24 +24,29 @@ class ArticleDAO extends DAO
         return $articles;
     }
 
-    /** Returns an article matching the supplied id.
+    /**
+     * Returns an article matching the supplied id.
+     *
      * @param integer $id
-     * @return \MicroCMS\Domain\Article|throws an exception if no matching article is found */
+     *
+     * @return \MicroCMS\Domain\Article|throws an exception if no matching article is found
+     */
     public function find($id) {
         $sql = "select * from t_article where art_id=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
 
-        if ($row) {
+        if ($row)
             return $this->buildDomainObject($row);
-        } 
-        else {
+        else
             throw new \Exception("No article matching id " . $id);
-        }
     }
 
-    /** Creates an Article object based on a DB row.
+    /**
+     * Creates an Article object based on a DB row.
+     *
      * @param array $row The DB row containing Article data.
-     * @return \MicroCMS\Domain\Article */
+     * @return \MicroCMS\Domain\Article
+     */
     protected function buildDomainObject($row) {
         $article = new Article();
         $article->setId($row['art_id']);

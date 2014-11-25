@@ -4,9 +4,32 @@ namespace MicroCMS\Domain;
 
 class Comment 
 {
+    /**
+     * Comment id.
+     *
+     * @var integer
+     */
     private $id;
+
+    /**
+     * Comment author.
+     *
+     * @var \MicroCMS\Domain\User
+     */
     private $author;
+
+    /**
+     * Comment content.
+     *
+     * @var integer
+     */
     private $content;
+
+    /**
+     * Associated article.
+     *
+     * @var \MicroCMS\Domain\Article
+     */
     private $article;
 
     public function getId() {

@@ -10,36 +10,40 @@ use MicroCMS\Domain\User;
 
 class UserDAO extends DAO implements UserProviderInterface
 {
-    /** Returns a user matching the supplied id.
+    /**
+     * Returns a user matching the supplied id.
+     *
      * @param integer $id
-     * @return \MicroCMS\Domain\User|throws an exception if no matching user is found */
+     *
+     * @return \MicroCMS\Domain\User|throws an exception if no matching user is found
+     */
     public function find($id) {
         $sql = "select * from t_user where usr_id=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
 
-        if ($row) {
+        if ($row)
             return $this->buildDomainObject($row);
-        } 
-        else {
+        else
             throw new \Exception("No user matching id " . $id);
-        }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     public function loadUserByUsername($username)
     {
         $sql = "select * from t_user where usr_name=?";
         $row = $this->getDb()->fetchAssoc($sql, array($username));
 
-        if ($row){
+        if ($row)
             return $this->buildDomainObject($row);
-        }
-        else{
+        else
             throw new UsernameNotFoundException(sprintf('User "%s" not found.', $username));
-        }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     public function refreshUser(UserInterface $user)
     {
         $class = get_class($user);
@@ -49,15 +53,20 @@ class UserDAO extends DAO implements UserProviderInterface
         return $this->loadUserByUsername($user->getUsername());
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     public function supportsClass($class)
     {
         return 'MicroCMS\Domain\User' === $class;
     }
 
-    /** Creates a User object based on a DB row.
+    /**
+     * Creates a User object based on a DB row.
+     *
      * @param array $row The DB row containing User data.
-     * @return \MicroCMS\Domain\User */
+     * @return \MicroCMS\Domain\User
+     */
     protected function buildDomainObject($row) {
         $user = new User();
         $user->setId($row['usr_id']);
