@@ -36,7 +36,7 @@ class AppTest extends WebTestCase {
         $app['exception_handler']->disable();
         // Simulate sessions for testing
         $app['session.test'] = true;
-        
+
         // Enable anonymous access to admin zone
         $app['security.access_rules'] = array();
 
@@ -59,8 +59,8 @@ class AppTest extends WebTestCase {
             array('/admin/comment/1/edit'),
             array('/admin/user/add'),
             array('/admin/user/1/edit'),
-            array('/article/1'),
-            array('/login'),
+            array('/api/articles'),
+            array('/api/article/1'),
         );
     }
 
