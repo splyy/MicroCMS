@@ -1,3 +1,14 @@
+
+/*
+Ceci est une farce! Ha
+
+Ha
+
+Ha
+
+*/
+
+
 <?php
 
 namespace MicroCMS\Tests;
