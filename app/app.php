@@ -1,6 +1,6 @@
 <?php
 /**
-* Modification de MicroCMS by Symfomany
+* Modification de MicroCMS by Symfomany 2017
 */
 
 
