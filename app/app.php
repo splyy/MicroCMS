@@ -1,4 +1,8 @@
 <?php
+/**
+* Modification de MicroCMS by Symfomany 2017
+*/
+
 
 // Register global error and exception handlers
 use Symfony\Component\Debug\ErrorHandler;
